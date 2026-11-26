@@ -1,8 +1,8 @@
 # Pengaturan dasar website. Biasanya tidak perlu diubah.
 title: "Barokah Ridho Ilahi | Travel Umroh & Haji Surabaya"
 description: "PT. Barokah Ridho Ilahi, travel Umroh & Haji di Surabaya. Lebih dari 1000 jamaah selama 10 tahun. Paket Umroh 9, 12, 13, 16 hari, Umroh Plus dan Umroh Private."
-url: ""
-baseurl: ""
+url: "https://ilik7.github.io"
+baseurl: "/bri-travel"
 lang: id
 exclude:
   - README.md
