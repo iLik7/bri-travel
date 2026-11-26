@@ -1,0 +1,96 @@
+judul_halaman: Promo Bulan Ini
+keterangan: Harga spesial untuk keberangkatan terdekat. Kuota terbatas, amankan kursi Anda lewat WhatsApp.
+daftar:
+  - nama: Umroh Liburan
+    tagline: Ibadah Sempurna, Liburan Berkesan
+    poster: /images/promo/umroh-liburan.jpg
+    tampil: true
+    termasuk:
+      - Visa Umroh
+      - Tiket pesawat PP
+      - Transportasi
+      - Hotel
+      - Air Zamzam
+      - Muthowif, handling & siskopatuh
+      - Makan 3x sehari
+      - Perlengkapan
+      - Asuransi
+    jadwal:
+      - tanggal: 20 Desember 2026
+        durasi: 16 Hari
+        maskapai: Lion Air
+        rute: SUB – JED // JED – SUB
+        hotel_makkah: Zilal Alnuzala / setaraf
+        hotel_madinah: Sama Al Massi / setaraf
+        harga: Rp 37 juta
+        bonus: ""
+      - tanggal: 21 Januari 2027
+        durasi: 12 Hari
+        maskapai: Garuda Indonesia
+        rute: SUB – MED // JED – SUB
+        hotel_makkah: Ishraq Ajyad / setaraf
+        hotel_madinah: Sama Al Massi / setaraf
+        harga: Rp 37 juta
+        bonus: ""
+  - nama: Umroh Ramadhan
+    tagline: Bersama Meraih Berkah di Bulan Suci
+    poster: /images/promo/umroh-ramadhan.jpg
+    tampil: true
+    termasuk:
+      - Visa Umroh
+      - Tiket pesawat PP
+      - Transportasi
+      - Hotel
+      - Air Zamzam
+      - Handling & siskopatuh
+      - Makan 3x sehari
+      - Perlengkapan Umroh
+      - Asuransi perjalanan
+    jadwal:
+      - tanggal: 7 Februari 2027 (Awal Ramadhan)
+        durasi: 12 Hari
+        maskapai: Garuda Indonesia
+        rute: SUB – JED – JED – SUB
+        hotel_makkah: Zilal Alnuzala / setaraf
+        hotel_madinah: Pinewood / setaraf
+        harga: Rp 39 juta (all in)
+        bonus: Free kereta cepat
+      - tanggal: 25 Februari 2027 (Akhir Ramadhan)
+        durasi: 16 Hari
+        maskapai: Garuda Indonesia
+        rute: SUB – JED – JED – SUB
+        hotel_makkah: Al Miqat Ajyad / setaraf
+        hotel_madinah: Pinewood / setaraf
+        harga: Rp 49 juta (all in)
+        bonus: Free kereta cepat
+  - nama: Umroh Syawal
+    tagline: Saat Terbaik untuk Beribadah di Tanah Suci
+    poster: /images/promo/umroh-syawal.jpg
+    tampil: true
+    termasuk:
+      - Visa Umroh
+      - Tiket pesawat PP
+      - Transportasi
+      - Hotel
+      - Air Zamzam
+      - Handling & siskopatuh
+      - Makan 3x sehari
+      - Perlengkapan
+      - Asuransi
+    jadwal:
+      - tanggal: 13 Maret 2027
+        durasi: 12 Hari
+        maskapai: Lion Air
+        rute: SUB – JED | JED – SUB
+        hotel_makkah: Zilal Alnuzala / setaraf
+        hotel_madinah: Sama Al Massi / setaraf
+        harga: Rp 38 juta
+        bonus: Free kereta cepat
+      - tanggal: 14 Maret 2027
+        durasi: 9 Hari
+        maskapai: Garuda Indonesia
+        rute: SUB – JED | JED – SUB
+        hotel_makkah: Zilal Alnuzala / setaraf
+        hotel_madinah: Sama Al Massi / setaraf
+        harga: Rp 34 juta
+        bonus: Free kereta cepat

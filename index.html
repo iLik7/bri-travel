@@ -1,72 +1,16 @@
 ---
-layout: null
+layout: default
 ---
 {%- assign u = site.data.umum -%}
 {%- assign wa_pesan = "Assalamualaikum, saya ingin bertanya tentang paket Umroh di Barokah Ridho Ilahi." | url_encode | replace: "+", "%20" -%}
-<!doctype html>
-<html lang="id">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ site.title }}</title>
-  <meta name="description" content="{{ site.description }}">
-  <meta name="keywords" content="travel umroh surabaya, umroh surabaya, haji, paket umroh, umroh plus, umroh private, Barokah Ridho Ilahi">
-  <meta name="theme-color" content="#1f2437">
-  <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="id_ID">
-  <meta property="og:title" content="{{ site.title }}">
-  <meta property="og:description" content="{{ site.description }}">
-  <meta property="og:image" content="{{ site.url }}{{ '/images/daftar.jpg' | relative_url }}">
-  <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}/">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" type="image/png" href="{{ '/images/favicon.png' | relative_url }}">
-  <link rel="apple-touch-icon" href="{{ '/images/favicon.png' | relative_url }}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;1,500;1,700&family=Alegreya+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "TravelAgency",
-    "name": "PT. Barokah Ridho Ilahi",
-    "description": "{{ site.description }}",
-    "logo": "{{ site.url }}{{ '/images/logo.png' | relative_url }}",
-    "image": "{{ site.url }}{{ '/images/daftar.jpg' | relative_url }}",
-    "telephone": "+{{ u.wa_cs }}",
-    "email": "{{ u.email }}",
-    "address": {"@type": "PostalAddress", "streetAddress": "{{ u.alamat }}", "addressLocality": "Surabaya", "addressRegion": "Jawa Timur", "addressCountry": "ID"},
-    "openingHours": "Mo-Fr 09:00-16:00"
-  }
-  </script>
-</head>
-<body>
-
-<header class="nav" id="atas">
-  <div class="wrap nav-inner">
-    <a href="#atas" class="brand" aria-label="Barokah Ridho Ilahi, ke atas">
-      <img src="{{ '/images/logo.png' | relative_url }}" alt="Logo Barokah Ridho Ilahi" width="160" height="61">
-    </a>
-    <button class="nav-toggle" aria-label="Buka menu" aria-expanded="false" aria-controls="menu">
-      <span></span><span></span><span></span>
-    </button>
-    <nav id="menu" class="menu">
-      <a href="#tentang">Tentang</a>
-      <a href="#tim">Tim Kami</a>
-      <a href="#paket">Paket</a>
-      <a href="#testimoni">Testimoni</a>
-      <a href="#kontak">Kontak</a>
-      <a class="btn btn-wa btn-sm" href="https://wa.me/{{ u.wa_cs }}?text={{ wa_pesan }}" target="_blank" rel="noopener">Chat WhatsApp</a>
-    </nav>
-  </div>
-</header>
-
-<main>
   <section class="hero">
     <div class="hero-photos">
-      {%- for f in u.foto_hero limit: 3 %}
-      <div class="hero-photo" style="background-image:url('{{ f | relative_url }}')"></div>
+      {%- for h in u.video_hero limit: 3 %}
+      <div class="hero-photo">
+        <video data-auto muted loop playsinline preload="metadata" poster="{{ h.poster | relative_url }}">
+          <source src="{{ h.video | relative_url }}" type="video/mp4">
+        </video>
+      </div>
       {%- endfor %}
     </div>
     <div class="hero-shade"></div>
@@ -75,11 +19,25 @@ layout: null
       <h1>{{ u.judul_hero }}</h1>
       <p class="lead">{{ u.subjudul_hero }}</p>
       <div class="actions">
-        <a class="btn btn-gold" href="#paket">Lihat Paket</a>
+        <a class="btn btn-gold" href="{{ '/promo/' | relative_url }}">Lihat Promo Bulan Ini</a>
         <a class="btn btn-ghost" href="https://wa.me/{{ u.wa_konsultan }}?text={{ wa_pesan }}" target="_blank" rel="noopener">Konsultasi Gratis</a>
       </div>
     </div>
   </section>
+
+  {%- assign promo_tampil = site.data.promo.daftar | where: "tampil", true %}
+  {%- if promo_tampil.size > 0 %}
+  <section class="promo-strip">
+    <div class="wrap promo-strip-inner">
+      <div>
+        <p class="eyebrow dark">{{ site.data.promo.judul_halaman }}</p>
+        <h2>{% for p in promo_tampil %}{{ p.nama }}{% unless forloop.last %} · {% endunless %}{% endfor %}</h2>
+        <p>{{ site.data.promo.keterangan }}</p>
+      </div>
+      <a class="btn btn-gold" href="{{ '/promo/' | relative_url }}">Lihat semua promo →</a>
+    </div>
+  </section>
+  {%- endif %}
 
   <section class="section about" id="tentang">
     <div class="wrap about-grid">
@@ -94,7 +52,9 @@ layout: null
         </div>
       </div>
       <figure class="about-photo">
-        <img src="{{ u.foto_tentang | relative_url }}" alt="Jamaah Barokah Ridho Ilahi di Tanah Suci" loading="lazy">
+        <video data-auto muted loop playsinline preload="metadata" poster="{{ u.poster_tentang | relative_url }}" aria-label="Video jamaah Barokah Ridho Ilahi di Tanah Suci">
+          <source src="{{ u.video_tentang | relative_url }}" type="video/mp4">
+        </video>
       </figure>
     </div>
   </section>
@@ -120,7 +80,7 @@ layout: null
   <section class="section paket" id="paket">
     <div class="wrap">
       <h2 class="title"><i>Paket</i> Umroh</h2>
-      <p class="sub">Semua paket reguler: penerbangan tanpa transit, hotel dekat Masjid, dan katering Indonesia.</p>
+      <p class="sub">Semua paket reguler: penerbangan tanpa transit, hotel dekat Masjid, dan katering Indonesia. Cek juga <a href="{{ '/promo/' | relative_url }}">promo bulan ini</a>.</p>
       <div class="paket-grid">
         {%- for p in site.data.paket %}{% if p.tampil != false %}
         {%- capture pesan %}Assalamualaikum, saya ingin bertanya tentang paket {{ p.nama }}.{% endcapture %}
@@ -138,13 +98,48 @@ layout: null
               <li>{{ f }}</li>
               {%- endfor %}
             </ul>
-            <a class="btn btn-wa" href="https://wa.me/{{ u.wa_konsultan }}?text={{ pesan | url_encode | replace: "+", "%20" }}" target="_blank" rel="noopener">{% if p.harga and p.harga != '' %}Daftar via WhatsApp{% else %}Chat WA untuk detailnya{% endif %}</a>
+            <a class="btn btn-wa" href="https://wa.me/{{ u.wa_konsultan }}?text={{ pesan | url_encode | replace: "+", "%20" }}" target="_blank" rel="noopener">{% if p.harga and p.harga != '' %}Daftar via WhatsApp{% else %}Chat WA untuk detail{% endif %}</a>
           </div>
         </article>
         {%- endif %}{% endfor %}
       </div>
     </div>
   </section>
+
+  {%- assign pameran_tampil = site.data.pameran | where: "tampil", true %}
+  {%- if pameran_tampil.size > 0 %}
+  <section class="section pameran" id="pameran">
+    <div class="wrap">
+      <h2 class="title"><i>Upcoming</i> <b>Pameran</b></h2>
+      <p class="sub">Temui tim kami langsung di pameran berikut. Konsultasi gratis dan ada promo khusus pameran.</p>
+      <div class="pameran-list">
+        {%- for e in pameran_tampil %}
+        <article class="pameran-card">
+          {%- if e.gambar and e.gambar != '' %}
+          <a class="pameran-img" href="{{ e.gambar | relative_url }}" target="_blank" rel="noopener" title="Lihat gambar penuh">
+            <img src="{{ e.gambar | relative_url }}" alt="Denah dan info {{ e.nama }}" loading="lazy">
+          </a>
+          {%- endif %}
+          <div class="pameran-body">
+            <h3>{{ e.nama }}</h3>
+            <dl>
+              <dt>Tanggal</dt><dd>{{ e.tanggal }}</dd>
+              <dt>Lokasi</dt><dd>{{ e.lokasi }}</dd>
+              {%- if e.stand and e.stand != '' %}<dt>Stand</dt><dd>{{ e.stand }}</dd>{% endif %}
+            </dl>
+            {%- if e.keterangan and e.keterangan != '' %}<p>{{ e.keterangan }}</p>{% endif %}
+            <div class="actions">
+              {%- capture pesan_p %}Assalamualaikum, saya ingin datang ke stand Barokah Ridho Ilahi di {{ e.nama }}.{% endcapture %}
+              <a class="btn btn-wa" href="https://wa.me/{{ u.wa_cs }}?text={{ pesan_p | url_encode | replace: "+", "%20" }}" target="_blank" rel="noopener">Info via WhatsApp</a>
+              {%- if e.link_maps and e.link_maps != '' %}<a class="btn btn-outline" href="{{ e.link_maps }}" target="_blank" rel="noopener">Lihat lokasi</a>{% endif %}
+            </div>
+          </div>
+        </article>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+  {%- endif %}
 
   <section class="section testi" id="testimoni">
     <div class="wrap">
@@ -171,63 +166,3 @@ layout: null
       <a class="btn btn-wa btn-lg" href="https://wa.me/{{ u.wa_cs }}?text={{ wa_pesan }}" target="_blank" rel="noopener">Daftar via WhatsApp</a>
     </div>
   </section>
-
-  <section class="section kontak" id="kontak">
-    <div class="wrap kontak-grid">
-      <div class="kontak-item">
-        <h3>Telepon / WhatsApp</h3>
-        <p><a href="https://wa.me/{{ u.wa_cs }}?text={{ wa_pesan }}" target="_blank" rel="noopener">{{ u.wa_cs_tampil }}</a><br><small>Customer Service</small></p>
-        <p><a href="https://wa.me/{{ u.wa_konsultan }}?text={{ wa_pesan }}" target="_blank" rel="noopener">{{ u.wa_konsultan_tampil }}</a><br><small>Umroh Consultant</small></p>
-      </div>
-      <div class="kontak-item">
-        <h3>Email</h3>
-        <p><a href="mailto:{{ u.email }}">{{ u.email }}</a></p>
-        {%- if u.instagram != '' or u.facebook != '' or u.tiktok != '' or u.youtube != '' %}
-        <h3>Sosial Media</h3>
-        <p class="socials">
-          {%- if u.instagram != '' %}<a href="{{ u.instagram }}" target="_blank" rel="noopener">Instagram</a>{% endif %}
-          {%- if u.facebook != '' %}<a href="{{ u.facebook }}" target="_blank" rel="noopener">Facebook</a>{% endif %}
-          {%- if u.tiktok != '' %}<a href="{{ u.tiktok }}" target="_blank" rel="noopener">TikTok</a>{% endif %}
-          {%- if u.youtube != '' %}<a href="{{ u.youtube }}" target="_blank" rel="noopener">YouTube</a>{% endif %}
-        </p>
-        {%- endif %}
-      </div>
-      <div class="kontak-item">
-        <h3>Jam Layanan</h3>
-        <p>{{ u.jam_kerja }}<br><small>{{ u.jam_libur }}</small></p>
-      </div>
-      <div class="kontak-item">
-        <h3>Kantor</h3>
-        <p>PT. Barokah Ridho Ilahi<br>{{ u.alamat }}</p>
-        <p><a href="{{ u.link_maps }}" target="_blank" rel="noopener">Buka di Google Maps →</a></p>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer class="footer">
-  <div class="wrap footer-inner">
-    <img src="{{ '/images/logo.png' | relative_url }}" alt="Barokah Ridho Ilahi" width="150" height="57" loading="lazy">
-    <p>© {{ site.time | date: "%Y" }} PT. Barokah Ridho Ilahi. Travel Umroh &amp; Haji, Surabaya.</p>
-  </div>
-</footer>
-
-<a class="wa-float" href="https://wa.me/{{ u.wa_cs }}?text={{ wa_pesan }}" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
-  <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path fill="currentColor" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.3-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.9-3.9-1.9-6.1C4.9 9.8 9.9 5 16 5s11.1 4.8 11.1 10.8S22.1 26.4 16 26.4zm6.1-8c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.8.2-.2.3-.9 1.1-1.1 1.3-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.7-1.7-1-.9-1.7-2-1.9-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6l-1.1-2.5c-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.3 1.4 3.5c.2.2 2.4 3.6 5.8 5 .8.4 1.4.6 1.9.7.8.3 1.6.2 2.2.1.7-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6-.1-.1-.3-.2-.6-.4z"/></svg>
-</a>
-
-<script>
-  (function () {
-    var btn = document.querySelector('.nav-toggle');
-    var menu = document.getElementById('menu');
-    btn.addEventListener('click', function () {
-      var open = menu.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open);
-    });
-    menu.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') { menu.classList.remove('open'); btn.setAttribute('aria-expanded', false); }
-    });
-  })();
-</script>
-</body>
-</html>

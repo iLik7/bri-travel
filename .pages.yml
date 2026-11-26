@@ -3,6 +3,50 @@ media:
   input: images
   output: /images
 content:
+  - name: promo
+    label: Promo Bulan Ini
+    type: file
+    path: _data/promo.yml
+    fields:
+      - { name: judul_halaman, label: Judul halaman promo, type: string }
+      - { name: keterangan, label: Kalimat pembuka, type: text }
+      - name: daftar
+        label: Daftar promo
+        type: object
+        list: true
+        fields:
+          - { name: nama, label: Nama promo (contoh Umroh Ramadhan), type: string, required: true }
+          - { name: tagline, label: Tagline, type: string }
+          - { name: poster, label: Poster promo (upload dari Canva sebagai JPG), type: image }
+          - { name: tampil, label: Tampilkan di website, type: boolean, default: true }
+          - { name: termasuk, label: Harga sudah termasuk, type: string, list: true }
+          - name: jadwal
+            label: Jadwal keberangkatan
+            type: object
+            list: true
+            fields:
+              - { name: tanggal, label: Tanggal berangkat, type: string }
+              - { name: durasi, label: Durasi (contoh 12 Hari), type: string }
+              - { name: maskapai, label: Maskapai, type: string }
+              - { name: rute, label: Rute, type: string }
+              - { name: hotel_makkah, label: Hotel Makkah, type: string }
+              - { name: hotel_madinah, label: Hotel Madinah, type: string }
+              - { name: harga, label: Harga (contoh Rp 39 juta), type: string }
+              - { name: bonus, label: Bonus (opsional, contoh Free kereta cepat), type: string }
+  - name: pameran
+    label: Upcoming Pameran
+    type: file
+    path: _data/pameran.yml
+    list: true
+    fields:
+      - { name: nama, label: Nama pameran, type: string, required: true }
+      - { name: tanggal, label: Tanggal, type: string }
+      - { name: lokasi, label: Lokasi, type: string }
+      - { name: stand, label: Nomor / posisi stand kita, type: string }
+      - { name: keterangan, label: Keterangan singkat, type: text }
+      - { name: gambar, label: Gambar / denah pameran, type: image }
+      - { name: link_maps, label: Link Google Maps lokasi (opsional), type: string }
+      - { name: tampil, label: Tampilkan di website (matikan kalau pameran sudah lewat), type: boolean, default: true }
   - name: paket
     label: Paket Umroh
     type: file
@@ -78,18 +122,23 @@ content:
     fields:
       - { name: judul_hero, label: Judul besar di atas, type: string }
       - { name: subjudul_hero, label: Kalimat di bawah judul, type: text }
-      - name: foto_hero
-        label: Foto atas (3 foto, yang ke-2 tampil di HP)
-        type: image
+      - name: video_hero
+        label: Video atas (maks 3, yang ke-2 tampil di HP). Video MP4 di bawah 5 MB.
+        type: object
         list: { min: 1, max: 3 }
+        fields:
+          - { name: video, label: Video (MP4), type: file, options: { extensions: [mp4] } }
+          - { name: poster, label: Gambar sampul (tampil sebelum video jalan), type: image }
       - { name: jumlah_jamaah, label: Jumlah jamaah (contoh "1000+"), type: string }
       - { name: lama_tahun, label: Lama berdiri (tahun), type: string }
-      - { name: foto_tentang, label: Foto bagian Tentang Kami, type: image }
+      - { name: video_tentang, label: Video bagian Tentang Kami (MP4), type: file, options: { extensions: [mp4] } }
+      - { name: poster_tentang, label: Gambar sampul video Tentang Kami, type: image }
       - { name: foto_daftar, label: Foto bagian Segera Daftar, type: image }
       - { name: wa_cs, label: "WA Customer Service (format 62..., tanpa + dan spasi)", type: string }
       - { name: wa_cs_tampil, label: Nomor CS yang ditampilkan, type: string }
       - { name: wa_konsultan, label: "WA Umroh Consultant (format 62...)", type: string }
       - { name: wa_konsultan_tampil, label: Nomor konsultan yang ditampilkan, type: string }
+      - { name: izin_ppiu, label: Nomor izin PPIU, type: string }
       - { name: email, label: Email, type: string }
       - { name: jam_kerja, label: Jam kerja, type: string }
       - { name: jam_libur, label: Keterangan akhir pekan, type: string }

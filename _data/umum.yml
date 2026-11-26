@@ -1,23 +1,28 @@
 judul_hero: Temukan kebutuhan Umrohmu di sini
 subjudul_hero: Travel Umroh & Haji terpercaya dari Surabaya. Bimbingan ustadz, hotel dekat Masjid, dan katering Indonesia.
-foto_hero:
-  - /images/hero-1.jpg
-  - /images/hero-2.jpg
-  - /images/hero-3.jpg
+video_hero:
+  - video: /images/video/hero-1.mp4
+    poster: /images/hero-1-poster.jpg
+  - video: /images/video/hero-2.mp4
+    poster: /images/hero-2-poster.jpg
+  - video: /images/video/hero-3.mp4
+    poster: /images/hero-3-poster.jpg
 jumlah_jamaah: "1000+"
 lama_tahun: "10"
-foto_tentang: /images/jamaah.jpg
+video_tentang: /images/video/tentang-kami.mp4
+poster_tentang: /images/tentang-kami-poster.jpg
 foto_daftar: /images/daftar.jpg
-wa_cs: "6282229545855"
-wa_cs_tampil: "0822-2954-5855"
+izin_ppiu: "16082300668340001/2024"
+wa_cs: "6285179740235"
+wa_cs_tampil: "0851-7974-0235"
 wa_konsultan: "6281231115247"
 wa_konsultan_tampil: "0812-3111-5247"
 email: barokahridhoilahi.bri@gmail.com
 jam_kerja: Senin – Jumat, 09.00 – 16.00
 jam_libur: Sabtu – Minggu dengan janji temu
 alamat: Jl. Pakis Tirtosari No. 9, Surabaya
-link_maps: https://www.google.com/maps/search/?api=1&query=Jl.+Pakis+Tirtosari+No.+9+Surabaya
+link_maps: https://www.google.com/maps?q=place_id:ChIJQeeu_Iz71y0R7T6QLLCoHVw
 instagram: ""
 facebook: ""
-tiktok: ""
+tiktok: https://www.tiktok.com/@barokahridhoilahi
 youtube: ""
