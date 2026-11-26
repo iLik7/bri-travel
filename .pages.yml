@@ -33,6 +33,34 @@ content:
               - { name: hotel_madinah, label: Hotel Madinah, type: string }
               - { name: harga, label: Harga (contoh Rp 39 juta), type: string }
               - { name: bonus, label: Bonus (opsional, contoh Free kereta cepat), type: string }
+  - name: info
+    label: Izin, Cara Daftar & FAQ
+    type: file
+    path: _data/info.yml
+    fields:
+      - name: izin
+        label: Badge izin resmi
+        type: object
+        fields:
+          - { name: judul, label: Judul, type: string }
+          - { name: teks, label: Keterangan, type: string }
+          - { name: link_cek, label: Link cek izin, type: string }
+      - { name: keunggulan, label: Keunggulan (baris centang di bawah foto atas), type: string, list: true }
+      - name: langkah
+        label: Langkah pendaftaran
+        type: object
+        list: true
+        fields:
+          - { name: judul, label: Judul langkah, type: string }
+          - { name: teks, label: Penjelasan, type: text }
+      - { name: dokumen, label: Dokumen yang perlu disiapkan, type: string, list: true }
+      - name: faq
+        label: FAQ
+        type: object
+        list: true
+        fields:
+          - { name: tanya, label: Pertanyaan, type: string }
+          - { name: jawab, label: Jawaban, type: text }
   - name: keberangkatan
     label: Keberangkatan Terakhir
     type: file
