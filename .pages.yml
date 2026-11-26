@@ -203,6 +203,8 @@ content:
       - { name: jam_libur, label: Keterangan akhir pekan, type: string }
       - { name: alamat, label: Alamat kantor, type: string }
       - { name: link_maps, label: Link Google Maps, type: string }
+      - { name: peta_embed, label: Link peta (embed Google Maps), type: string }
+      - { name: link_review, label: Link tulis ulasan Google, type: string }
       - { name: instagram, label: Link Instagram (opsional), type: string }
       - { name: facebook, label: Link Facebook (opsional), type: string }
       - { name: tiktok, label: Link TikTok (opsional), type: string }

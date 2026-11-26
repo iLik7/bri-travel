@@ -197,6 +197,13 @@ layout: default
         </figure>
         {%- endfor %}
       </div>
+      {%- if u.link_review and u.link_review != '' %}
+      <div class="review-cta">
+        <span class="review-stars" aria-hidden="true">★★★★★</span>
+        <p>Pernah berangkat bersama kami? Bantu jamaah lain dengan cerita Anda.</p>
+        <a class="btn btn-navy" href="{{ u.link_review }}" target="_blank" rel="noopener">Tulis ulasan di Google</a>
+      </div>
+      {%- endif %}
     </div>
   </section>
 

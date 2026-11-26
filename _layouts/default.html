@@ -106,6 +106,15 @@
       <p><a href="{{ u.link_maps }}" target="_blank" rel="noopener">Buka di Google Maps →</a></p>
     </div>
   </div>
+  {%- if u.peta_embed and u.peta_embed != '' %}
+  <div class="wrap peta">
+    <iframe src="{{ u.peta_embed }}" title="Peta kantor PT. Barokah Ridho Ilahi" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    <div class="peta-actions">
+      <a class="btn btn-light" href="{{ u.link_maps }}" target="_blank" rel="noopener">Petunjuk arah</a>
+      {%- if u.link_review and u.link_review != '' %}<a class="btn btn-ghost" href="{{ u.link_review }}" target="_blank" rel="noopener">★ Kasih ulasan Google</a>{% endif %}
+    </div>
+  </div>
+  {%- endif %}
 </section>
 
 <footer class="footer">
