@@ -1,8 +1,8 @@
 izin:
   judul: Izin Resmi Kemenag RI
   teks: Penyelenggara Perjalanan Ibadah Umrah (PPIU) terdaftar
-  link_cek: https://play.google.com/store/apps/details?id=com.kemenag_haji_pintar_2019
-  label_cek: Cek di aplikasi Satu Haji
+  link_cek: /legalitas/
+  label_cek: Lihat legalitas & cara cek
 keunggulan:
   - Penerbangan langsung tanpa transit
   - Hotel dekat Masjid ± 150 m

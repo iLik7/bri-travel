@@ -1,0 +1,32 @@
+judul: Legalitas & Izin Resmi
+keterangan: PT. Barokah Ridho Ilahi adalah travel Umroh resmi berizin PPIU. Semua izin di bawah ini bisa Anda cek sendiri sebelum mendaftar.
+izin:
+  - nama: Izin PPIU (Penyelenggara Perjalanan Ibadah Umrah)
+    nomor: "16082300668340001/2024"
+    keterangan: Izin resmi menyelenggarakan perjalanan Umroh.
+  - nama: NIB (Nomor Induk Berusaha)
+    nomor: ""
+    keterangan: Nomor izin usaha dari OSS.
+  - nama: SK Kemenkumham (AHU)
+    nomor: ""
+    keterangan: Pengesahan badan hukum PT.
+  - nama: Akreditasi PPIU
+    nomor: ""
+    keterangan: Hasil penilaian mutu penyelenggara Umroh.
+cek_judul: Cara cek izin kami di aplikasi resmi
+cek_langkah:
+  - Install aplikasi Satu Haji dari Kementerian Haji dan Umrah RI.
+  - Buka menu Layanan, lalu pilih Umrah & Haji Khusus.
+  - Pilih Penyelenggara Umrah (PPIU).
+  - Ketik Barokah Ridho Ilahi, lalu cocokkan nama PT dan nomor izinnya.
+cek_link: https://play.google.com/store/apps/details?id=com.kemenag_haji_pintar_2019
+cek_tombol: Buka Satu Haji di Play Store
+rekening_judul: Rekening resmi pembayaran
+rekening_keterangan: Pembayaran DP dan pelunasan hanya ke rekening atas nama PT. Barokah Ridho Ilahi di bawah ini.
+rekening: []
+waspada_judul: Waspada penipuan atas nama kami
+waspada:
+  - Kami tidak pernah meminta transfer ke rekening pribadi.
+  - Nomor WhatsApp resmi kami hanya yang tercantum di website ini.
+  - Setiap pembayaran mendapat bukti/kuitansi resmi dari kantor.
+  - Ragu? Hubungi kami atau datang langsung ke kantor sebelum transfer.

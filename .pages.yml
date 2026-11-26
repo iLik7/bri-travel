@@ -44,7 +44,7 @@ content:
         fields:
           - { name: judul, label: Judul, type: string }
           - { name: teks, label: Keterangan, type: string }
-          - { name: link_cek, label: Link cek izin, type: string }
+          - { name: link_cek, label: Link badge (default /legalitas/), type: string }
           - { name: label_cek, label: Tulisan link cek izin, type: string }
       - { name: keunggulan, label: Keunggulan (baris centang di bawah foto atas), type: string, list: true }
       - name: langkah
@@ -62,6 +62,37 @@ content:
         fields:
           - { name: tanya, label: Pertanyaan, type: string }
           - { name: jawab, label: Jawaban, type: text }
+  - name: legalitas
+    label: Halaman Legalitas
+    type: file
+    path: _data/legalitas.yml
+    fields:
+      - { name: judul, label: Judul halaman, type: string }
+      - { name: keterangan, label: Keterangan, type: text }
+      - name: izin
+        label: Daftar izin (kosongkan nomor kalau belum ada, nanti tidak tampil)
+        type: object
+        list: true
+        fields:
+          - { name: nama, label: Nama izin, type: string }
+          - { name: nomor, label: Nomor, type: string }
+          - { name: keterangan, label: Keterangan, type: string }
+      - { name: cek_judul, label: Judul cara cek, type: string }
+      - { name: cek_langkah, label: Langkah cek izin, type: string, list: true }
+      - { name: cek_link, label: Link aplikasi cek izin, type: string }
+      - { name: cek_tombol, label: Tulisan tombol cek, type: string }
+      - { name: rekening_judul, label: Judul rekening, type: string }
+      - { name: rekening_keterangan, label: Keterangan rekening, type: text }
+      - name: rekening
+        label: Rekening resmi (kosong = bagian tidak tampil)
+        type: object
+        list: true
+        fields:
+          - { name: bank, label: Bank, type: string }
+          - { name: nomor, label: Nomor rekening, type: string }
+          - { name: atas_nama, label: Atas nama, type: string }
+      - { name: waspada_judul, label: Judul peringatan, type: string }
+      - { name: waspada, label: Poin peringatan penipuan, type: string, list: true }
   - name: keberangkatan
     label: Keberangkatan Terakhir
     type: file

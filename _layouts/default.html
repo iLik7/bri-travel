@@ -97,7 +97,7 @@
       <p>{{ u.jam_kerja }}<br><small>{{ u.jam_libur }}</small></p>
       {%- if u.izin_ppiu != '' %}
       <h3>Izin Resmi</h3>
-      <p>PPIU No. {{ u.izin_ppiu }}</p>
+      <p>PPIU No. {{ u.izin_ppiu }}<br><a href="{{ '/legalitas/' | relative_url }}">Lihat legalitas →</a></p>
       {%- endif %}
     </div>
     <div class="kontak-item">
@@ -111,7 +111,7 @@
 <footer class="footer">
   <div class="wrap footer-inner">
     <img src="{{ '/images/logo.png' | relative_url }}" alt="Barokah Ridho Ilahi" width="150" height="57" loading="lazy">
-    <p>© {{ site.time | date: "%Y" }} PT. Barokah Ridho Ilahi. Travel Umroh &amp; Haji, Surabaya.</p>
+    <p>© {{ site.time | date: "%Y" }} PT. Barokah Ridho Ilahi. Travel Umroh &amp; Haji, Surabaya. · <a href="{{ '/legalitas/' | relative_url }}">Legalitas</a></p>
   </div>
 </footer>
 

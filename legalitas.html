@@ -1,0 +1,67 @@
+---
+layout: default
+permalink: /legalitas/
+judul: "Legalitas & Izin Resmi PPIU | Barokah Ridho Ilahi Surabaya"
+deskripsi: "PT. Barokah Ridho Ilahi travel Umroh resmi berizin PPIU No. 16082300668340001/2024. Cara cek izin di aplikasi Satu Haji, rekening resmi, dan tips anti penipuan."
+---
+{%- assign u = site.data.umum -%}
+{%- assign lg = site.data.legalitas -%}
+{%- capture pesan_l %}Assalamualaikum, saya ingin konfirmasi legalitas / rekening resmi Barokah Ridho Ilahi.{% endcapture %}
+  <section class="promo-hero legal-hero">
+    <div class="wrap">
+      <svg class="legal-shield" viewBox="0 0 24 24" width="64" height="64" aria-hidden="true"><path fill="currentColor" d="M12 1 3 5v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V5l-9-4zm-1.4 16-4.2-4.2 1.4-1.4 2.8 2.8 5.6-5.6 1.4 1.4-7 7z"/></svg>
+      <h1>{{ lg.judul }}</h1>
+      <p class="lead">{{ lg.keterangan }}</p>
+    </div>
+  </section>
+
+  <section class="section legal">
+    <div class="wrap legal-wrap">
+      <div class="legal-grid">
+        {%- for i in lg.izin %}{% if i.nomor and i.nomor != '' %}
+        <div class="legal-card">
+          <span class="legal-label">{{ i.nama }}</span>
+          <strong class="legal-no">{{ i.nomor }}</strong>
+          {%- if i.keterangan and i.keterangan != '' %}<small>{{ i.keterangan }}</small>{% endif %}
+        </div>
+        {%- endif %}{% endfor %}
+        <div class="legal-card">
+          <span class="legal-label">Nama badan usaha</span>
+          <strong class="legal-no">PT. Barokah Ridho Ilahi</strong>
+          <small>{{ u.alamat }}</small>
+        </div>
+      </div>
+
+      <div class="legal-block">
+        <h2>{{ lg.cek_judul }}</h2>
+        <ol class="legal-steps">
+          {%- for l in lg.cek_langkah %}<li>{{ l }}</li>{% endfor %}
+        </ol>
+        <a class="btn btn-navy" href="{{ lg.cek_link }}" target="_blank" rel="noopener">{{ lg.cek_tombol }}</a>
+      </div>
+
+      {%- if lg.rekening and lg.rekening.size > 0 %}
+      <div class="legal-block">
+        <h2>{{ lg.rekening_judul }}</h2>
+        <p>{{ lg.rekening_keterangan }}</p>
+        <div class="legal-grid">
+          {%- for r in lg.rekening %}
+          <div class="legal-card">
+            <span class="legal-label">{{ r.bank }}</span>
+            <strong class="legal-no">{{ r.nomor }}</strong>
+            <small>a.n. {{ r.atas_nama }}</small>
+          </div>
+          {%- endfor %}
+        </div>
+      </div>
+      {%- endif %}
+
+      <div class="legal-block legal-warn">
+        <h2>{{ lg.waspada_judul }}</h2>
+        <ul>
+          {%- for w in lg.waspada %}<li>{{ w }}</li>{% endfor %}
+        </ul>
+        <a class="btn btn-wa" href="https://wa.me/{{ u.wa_cs }}?text={{ pesan_l | url_encode | replace: "+", "%20" }}" target="_blank" rel="noopener">Konfirmasi via WhatsApp</a>
+      </div>
+    </div>
+  </section>
