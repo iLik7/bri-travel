@@ -1,7 +1,8 @@
 izin:
   judul: Izin Resmi Kemenag RI
   teks: Penyelenggara Perjalanan Ibadah Umrah (PPIU) terdaftar
-  link_cek: https://haji.go.id/
+  link_cek: https://play.google.com/store/apps/details?id=com.kemenag_haji_pintar_2019
+  label_cek: Cek di aplikasi Satu Haji
 keunggulan:
   - Penerbangan langsung tanpa transit
   - Hotel dekat Masjid ± 150 m
@@ -36,6 +37,6 @@ faq:
   - tanya: Bisa daftar untuk orang tua atau lansia?
     jawab: Bisa. Kabarkan kondisi kesehatan jamaah saat mendaftar supaya tim kami bisa menyiapkan pendampingan yang sesuai.
   - tanya: Apakah travel ini resmi?
-    jawab: Ya. PT. Barokah Ridho Ilahi memiliki izin resmi PPIU dari Kementerian Agama RI dan sudah memberangkatkan lebih dari 1000 jamaah selama 10 tahun. Nomor izin bisa Anda cek sendiri di situs resmi Kementerian Haji dan Umrah (haji.go.id).
+    jawab: Ya. PT. Barokah Ridho Ilahi memiliki izin resmi PPIU dari Kementerian Agama RI dan sudah memberangkatkan lebih dari 1000 jamaah selama 10 tahun. Izin kami bisa Anda cek sendiri lewat aplikasi resmi Satu Haji dari Kementerian Haji dan Umrah. Buka menu Layanan, pilih Umrah & Haji Khusus, lalu Penyelenggara Umrah (PPIU), dan ketik Barokah Ridho Ilahi.
   - tanya: Di mana kantornya? Bisa datang langsung?
     jawab: Kantor kami di Jl. Pakis Tirtosari No. 9, Surabaya. Buka Senin–Jumat 09.00–16.00, Sabtu–Minggu dengan janji temu lewat WhatsApp.

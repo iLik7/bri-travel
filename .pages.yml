@@ -45,6 +45,7 @@ content:
           - { name: judul, label: Judul, type: string }
           - { name: teks, label: Keterangan, type: string }
           - { name: link_cek, label: Link cek izin, type: string }
+          - { name: label_cek, label: Tulisan link cek izin, type: string }
       - { name: keunggulan, label: Keunggulan (baris centang di bawah foto atas), type: string, list: true }
       - name: langkah
         label: Langkah pendaftaran
