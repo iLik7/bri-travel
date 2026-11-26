@@ -109,6 +109,67 @@ layout: default
     </div>
   </section>
 
+  <section class="section kalkulator" id="kalkulator">
+    <div class="wrap">
+      <h2 class="title"><i>Kalkulator</i> <b>Tabungan Umroh</b></h2>
+      <p class="sub">Hitung berapa yang perlu disisihkan tiap bulan sampai lunas. Mulai dengan DP Rp 5 juta, sisanya dicicil sesuai kemampuan.</p>
+      <div class="kalk">
+        <div class="kalk-input">
+          <label for="k-paket">Paket impian (harga acuan promo saat ini)</label>
+          <select id="k-paket">
+            {%- for p in site.data.promo.daftar %}{% if p.tampil != false %}{% for j in p.jadwal %}
+            <option value="{{ j.harga }}" data-nama="{{ p.nama }}">{{ p.nama }} {{ j.durasi }} · {{ j.harga }}</option>
+            {%- endfor %}{% endif %}{% endfor %}
+            <option value="lain" data-nama="">Harga lain…</option>
+          </select>
+          <div id="k-lain-wrap" hidden>
+            <label for="k-lain">Harga paket (Rp)</label>
+            <input id="k-lain" type="text" inputmode="numeric" placeholder="contoh 35.000.000">
+          </div>
+          <label for="k-bulan">Nabung selama <b id="k-bulan-val">12</b> bulan</label>
+          <input id="k-bulan" type="range" min="3" max="36" step="1" value="12">
+          <div class="kalk-scale"><span>3 bln</span><span>36 bln</span></div>
+        </div>
+        <div class="kalk-hasil" aria-live="polite">
+          <p>Sisihkan per bulan</p>
+          <strong id="k-bulanan">–</strong>
+          <ul>
+            <li><span>Harga paket</span><b id="k-harga">–</b></li>
+            <li><span>DP pendaftaran</span><b>Rp 5.000.000</b></li>
+            <li><span>Sisa dicicil</span><b id="k-sisa">–</b></li>
+            <li><span>Kira-kira per hari</span><b id="k-harian">–</b></li>
+          </ul>
+          <a id="k-wa" class="btn btn-wa" href="https://wa.me/{{ u.wa_konsultan }}" target="_blank" rel="noopener">Konsultasi rencana ini via WA</a>
+          <small>Simulasi saja. Harga & jadwal keberangkatan bisa berubah, jadwal pelunasan resmi kami jelaskan saat pendaftaran.</small>
+        </div>
+      </div>
+    </div>
+    <script>
+    (function(){
+      var DP=5000000, sel=document.getElementById('k-paket'), lainW=document.getElementById('k-lain-wrap'), lain=document.getElementById('k-lain'), bln=document.getElementById('k-bulan');
+      var rp=function(n){return 'Rp '+Math.round(n).toLocaleString('id-ID');};
+      var parse=function(t){t=String(t).toLowerCase();var m=t.match(/([\d.,]+)\s*(juta|jt)/);if(m)return parseFloat(m[1].replace(/\./g,'').replace(',','.'))*1e6;var d=t.replace(/[^\d]/g,'');return d?parseInt(d,10):0;};
+      function hitung(){
+        var isLain=sel.value==='lain'; lainW.hidden=!isLain;
+        var harga=isLain?parse(lain.value):parse(sel.value), n=+bln.value;
+        document.getElementById('k-bulan-val').textContent=n;
+        if(!harga){['k-harga','k-sisa','k-bulanan','k-harian'].forEach(function(i){document.getElementById(i).textContent='–';});return;}
+        var sisa=Math.max(harga-DP,0), per=sisa/n;
+        document.getElementById('k-harga').textContent=rp(harga);
+        document.getElementById('k-sisa').textContent=rp(sisa);
+        document.getElementById('k-bulanan').textContent=rp(Math.ceil(per/1000)*1000);
+        document.getElementById('k-harian').textContent=rp(Math.ceil(per/30/1000)*1000);
+        var nama=sel.options[sel.selectedIndex].getAttribute('data-nama')||'Umroh';
+        var pesan='Assalamualaikum, saya ingin merencanakan '+nama+' dengan budget sekitar '+rp(harga)+'. Rencana DP Rp 5 juta lalu nabung sekitar '+rp(Math.ceil(per/1000)*1000)+' per bulan selama '+n+' bulan. Bisa dibantu?';
+        document.getElementById('k-wa').href='https://wa.me/{{ u.wa_konsultan }}?text='+encodeURIComponent(pesan);
+      }
+      sel.addEventListener('change',hitung); bln.addEventListener('input',hitung);
+      lain.addEventListener('input',function(){var d=lain.value.replace(/[^\d]/g,'');lain.value=d?parseInt(d,10).toLocaleString('id-ID'):'';hitung();});
+      hitung();
+    })();
+    </script>
+  </section>
+
   {%- assign pameran_tampil = site.data.pameran | where: "tampil", true %}
   {%- if pameran_tampil.size > 0 %}
   <section class="section pameran" id="pameran">
