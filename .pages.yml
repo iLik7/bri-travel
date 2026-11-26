@@ -47,36 +47,6 @@ content:
       - { name: gambar, label: Gambar / denah pameran, type: image }
       - { name: link_maps, label: Link Google Maps lokasi (opsional), type: string }
       - { name: tampil, label: Tampilkan di website (matikan kalau pameran sudah lewat), type: boolean, default: true }
-  - name: paket
-    label: Paket Umroh
-    type: file
-    path: _data/paket.yml
-    list: true
-    fields:
-      - name: nama
-        label: Nama paket
-        type: string
-        required: true
-      - name: label
-        label: Label kecil (contoh Reguler, Premium, Promo)
-        type: string
-      - name: foto
-        label: Foto (kosongkan untuk kartu tanpa foto)
-        type: image
-      - name: harga
-        label: Harga (opsional, contoh "Mulai Rp 32 juta")
-        type: string
-      - name: keberangkatan
-        label: Tanggal keberangkatan (opsional)
-        type: string
-      - name: fasilitas
-        label: Fasilitas
-        type: string
-        list: true
-      - name: tampil
-        label: Tampilkan di website
-        type: boolean
-        default: true
   - name: testimoni
     label: Testimoni Jamaah
     type: file
@@ -91,8 +61,12 @@ content:
         label: Keterangan (contoh "Jamaah Umroh 13 hari")
         type: string
       - name: foto
-        label: Foto
+        label: Foto (juga jadi sampul video)
         type: image
+      - name: video
+        label: Video testimoni (MP4, opsional, di bawah 10 MB)
+        type: file
+        options: { extensions: [mp4] }
       - name: kutipan
         label: Kutipan testimoni (opsional)
         type: text

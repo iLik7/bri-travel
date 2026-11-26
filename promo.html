@@ -20,46 +20,4 @@ gambar_og: /images/promo/umroh-ramadhan.jpg
     </div>
   </section>
 
-  <section class="section promo-list">
-    <div class="wrap">
-      {%- for p in pr.daftar %}{% if p.tampil != false %}
-      <article class="promo" id="{{ p.nama | slugify }}">
-        {%- if p.poster and p.poster != '' %}
-        <a class="promo-poster" href="{{ p.poster | relative_url }}" target="_blank" rel="noopener" title="Lihat poster ukuran penuh">
-          <img src="{{ p.poster | relative_url }}" alt="Poster promo {{ p.nama }}" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}">
-        </a>
-        {%- endif %}
-        <div class="promo-body">
-          <h2>{{ p.nama }}</h2>
-          {%- if p.tagline and p.tagline != '' %}<p class="tagline">{{ p.tagline }}</p>{% endif %}
-          <div class="jadwal-grid">
-            {%- for j in p.jadwal %}
-            {%- capture pesan %}Assalamualaikum, saya ingin daftar {{ p.nama }} keberangkatan {{ j.tanggal }} ({{ j.durasi }}).{% endcapture %}
-            <div class="jadwal">
-              <p class="jadwal-tgl">{{ j.tanggal }}</p>
-              <p class="jadwal-meta">{{ j.durasi }}{% if j.maskapai and j.maskapai != '' %} · {{ j.maskapai }}{% endif %}</p>
-              {%- if j.harga and j.harga != '' %}<p class="jadwal-harga">{{ j.harga }}</p>{% endif %}
-              <ul>
-                {%- if j.rute and j.rute != '' %}<li><span>Rute</span>{{ j.rute }}</li>{% endif %}
-                {%- if j.hotel_makkah and j.hotel_makkah != '' %}<li><span>Hotel Makkah</span>{{ j.hotel_makkah }}</li>{% endif %}
-                {%- if j.hotel_madinah and j.hotel_madinah != '' %}<li><span>Hotel Madinah</span>{{ j.hotel_madinah }}</li>{% endif %}
-              </ul>
-              {%- if j.bonus and j.bonus != '' %}<p class="bonus">🎁 {{ j.bonus }}</p>{% endif %}
-              <a class="btn btn-wa" href="https://wa.me/{{ u.wa_konsultan }}?text={{ pesan | url_encode | replace: "+", "%20" }}" target="_blank" rel="noopener">Daftar via WhatsApp</a>
-            </div>
-            {%- endfor %}
-          </div>
-          {%- if p.termasuk and p.termasuk.size > 0 %}
-          <div class="termasuk">
-            <h3>Harga sudah termasuk</h3>
-            <ul>
-              {%- for t in p.termasuk %}<li>{{ t }}</li>{% endfor %}
-            </ul>
-          </div>
-          {%- endif %}
-        </div>
-      </article>
-      {%- endif %}{% endfor %}
-      <p class="promo-note">Harga dapat berubah sewaktu-waktu mengikuti ketersediaan kursi dan kurs. Konfirmasi harga terbaru lewat WhatsApp.</p>
-    </div>
-  </section>
+{% include promo-list.html %}

@@ -19,25 +19,11 @@ layout: default
       <h1>{{ u.judul_hero }}</h1>
       <p class="lead">{{ u.subjudul_hero }}</p>
       <div class="actions">
-        <a class="btn btn-gold" href="{{ '/promo/' | relative_url }}">Lihat Promo Bulan Ini</a>
+        <a class="btn btn-light" href="#promo">Lihat Promo Bulan Ini</a>
         <a class="btn btn-ghost" href="https://wa.me/{{ u.wa_konsultan }}?text={{ wa_pesan }}" target="_blank" rel="noopener">Konsultasi Gratis</a>
       </div>
     </div>
   </section>
-
-  {%- assign promo_tampil = site.data.promo.daftar | where: "tampil", true %}
-  {%- if promo_tampil.size > 0 %}
-  <section class="promo-strip">
-    <div class="wrap promo-strip-inner">
-      <div>
-        <p class="eyebrow dark">{{ site.data.promo.judul_halaman }}</p>
-        <h2>{% for p in promo_tampil %}{{ p.nama }}{% unless forloop.last %} · {% endunless %}{% endfor %}</h2>
-        <p>{{ site.data.promo.keterangan }}</p>
-      </div>
-      <a class="btn btn-gold" href="{{ '/promo/' | relative_url }}">Lihat semua promo →</a>
-    </div>
-  </section>
-  {%- endif %}
 
   <section class="section about" id="tentang">
     <div class="wrap about-grid">
@@ -77,34 +63,7 @@ layout: default
     </div>
   </section>
 
-  <section class="section paket" id="paket">
-    <div class="wrap">
-      <h2 class="title"><i>Paket</i> Umroh</h2>
-      <p class="sub">Semua paket reguler: penerbangan tanpa transit, hotel dekat Masjid, dan katering Indonesia. Cek juga <a href="{{ '/promo/' | relative_url }}">promo bulan ini</a>.</p>
-      <div class="paket-grid">
-        {%- for p in site.data.paket %}{% if p.tampil != false %}
-        {%- capture pesan %}Assalamualaikum, saya ingin bertanya tentang paket {{ p.nama }}.{% endcapture %}
-        <article class="card{% if p.foto == nil or p.foto == '' %} card-plain{% endif %}">
-          {%- if p.foto and p.foto != '' %}
-          <div class="card-photo"><img src="{{ p.foto | relative_url }}" alt="Jamaah paket {{ p.nama }}" loading="lazy"></div>
-          {%- endif %}
-          <div class="card-body">
-            {%- if p.label and p.label != '' %}<span class="tag">{{ p.label }}</span>{% endif %}
-            <h3>{{ p.nama }}</h3>
-            {%- if p.harga and p.harga != '' %}<p class="price">{{ p.harga }}</p>{% endif %}
-            {%- if p.keberangkatan and p.keberangkatan != '' %}<p class="date">Keberangkatan: {{ p.keberangkatan }}</p>{% endif %}
-            <ul>
-              {%- for f in p.fasilitas %}
-              <li>{{ f }}</li>
-              {%- endfor %}
-            </ul>
-            <a class="btn btn-wa" href="https://wa.me/{{ u.wa_konsultan }}?text={{ pesan | url_encode | replace: "+", "%20" }}" target="_blank" rel="noopener">{% if p.harga and p.harga != '' %}Daftar via WhatsApp{% else %}Chat WA untuk detail{% endif %}</a>
-          </div>
-        </article>
-        {%- endif %}{% endfor %}
-      </div>
-    </div>
-  </section>
+  {% include promo-list.html judul="<i>Promo</i> Bulan Ini" %}
 
   {%- assign pameran_tampil = site.data.pameran | where: "tampil", true %}
   {%- if pameran_tampil.size > 0 %}
@@ -147,7 +106,13 @@ layout: default
       <div class="testi-grid">
         {%- for t in site.data.testimoni %}
         <figure class="testi-card">
+          {%- if t.video and t.video != '' %}
+          <video controls playsinline preload="none" poster="{{ t.foto | relative_url }}" aria-label="Video testimoni {{ t.nama }}">
+            <source src="{{ t.video | relative_url }}" type="video/mp4">
+          </video>
+          {%- else %}
           <img src="{{ t.foto | relative_url }}" alt="{{ t.nama }}" loading="lazy">
+          {%- endif %}
           <figcaption>
             {%- if t.kutipan and t.kutipan != '' %}<blockquote>“{{ t.kutipan }}”</blockquote>{% endif %}
             <strong>{{ t.nama }}</strong><span>{{ t.paket }}</span>
