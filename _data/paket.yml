@@ -1,0 +1,67 @@
+- nama: Umroh 9 Hari
+  label: Reguler
+  foto: /images/paket-9.jpg
+  harga: ""
+  keberangkatan: ""
+  fasilitas:
+    - Penerbangan tanpa transit
+    - 3 hari Madinah, 4 hari Mekkah
+    - Hotel dekat ± 150 m
+    - Makanan katering Indonesia
+  tampil: true
+- nama: Umroh 12 Hari
+  label: Reguler
+  foto: /images/paket-12.jpg
+  harga: ""
+  keberangkatan: ""
+  fasilitas:
+    - Penerbangan tanpa transit
+    - 5 hari Madinah, 5 hari Mekkah
+    - Hotel dekat ± 150 m
+    - Makanan katering Indonesia
+  tampil: true
+- nama: Umroh 13 Hari
+  label: Reguler
+  foto: /images/paket-13.jpg
+  harga: ""
+  keberangkatan: ""
+  fasilitas:
+    - Penerbangan tanpa transit
+    - 5 hari Madinah, 6 hari Mekkah
+    - Hotel dekat ± 150 m
+    - Makanan katering Indonesia
+  tampil: true
+- nama: Umroh 16 Hari
+  label: Reguler
+  foto: /images/paket-16.jpg
+  harga: ""
+  keberangkatan: ""
+  fasilitas:
+    - Penerbangan tanpa transit
+    - 7 hari Madinah, 7 hari Mekkah
+    - Hotel dekat ± 150 m
+    - Makanan katering Indonesia
+  tampil: true
+- nama: Umroh Plus
+  label: Premium
+  foto: ""
+  harga: ""
+  keberangkatan: ""
+  fasilitas:
+    - Garuda Indonesia
+    - Hotel bintang 5 Al Haram, Pullman
+    - Makan full board hotel
+    - Perlengkapan eksklusif
+  tampil: true
+- nama: Umroh Private
+  label: Private
+  foto: ""
+  harga: ""
+  keberangkatan: ""
+  fasilitas:
+    - Transportasi private dan muthowif
+    - Bebas pilih maskapai penerbangan
+    - Bebas pilih hotel
+    - Bebas tentukan tanggal, durasi, dan program
+    - Perlengkapan eksklusif
+  tampil: true

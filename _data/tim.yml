@@ -1,0 +1,13 @@
+ustadz:
+  nama: Ustadz H. Drs. Bambang Masudi
+  foto: /images/ustadz.jpg
+anggota:
+  - nama: Hj. Tussripah
+    jabatan: Haji & Umroh Consultant
+    foto: /images/tim-tussripah.jpg
+  - nama: Asri Wisti
+    jabatan: Umroh Consultant
+    foto: /images/tim-asri.jpg
+  - nama: Vina
+    jabatan: Office Administration
+    foto: /images/tim-vina.jpg

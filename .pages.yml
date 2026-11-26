@@ -1,0 +1,101 @@
+# Pengaturan Pages CMS (app.pagescms.org): form untuk edit isi website tanpa ngoding.
+media:
+  input: images
+  output: /images
+content:
+  - name: paket
+    label: Paket Umroh
+    type: file
+    path: _data/paket.yml
+    list: true
+    fields:
+      - name: nama
+        label: Nama paket
+        type: string
+        required: true
+      - name: label
+        label: Label kecil (contoh Reguler, Premium, Promo)
+        type: string
+      - name: foto
+        label: Foto (kosongkan untuk kartu tanpa foto)
+        type: image
+      - name: harga
+        label: Harga (opsional, contoh "Mulai Rp 32 juta")
+        type: string
+      - name: keberangkatan
+        label: Tanggal keberangkatan (opsional)
+        type: string
+      - name: fasilitas
+        label: Fasilitas
+        type: string
+        list: true
+      - name: tampil
+        label: Tampilkan di website
+        type: boolean
+        default: true
+  - name: testimoni
+    label: Testimoni Jamaah
+    type: file
+    path: _data/testimoni.yml
+    list: true
+    fields:
+      - name: nama
+        label: Nama jamaah
+        type: string
+        required: true
+      - name: paket
+        label: Keterangan (contoh "Jamaah Umroh 13 hari")
+        type: string
+      - name: foto
+        label: Foto
+        type: image
+      - name: kutipan
+        label: Kutipan testimoni (opsional)
+        type: text
+  - name: tim
+    label: Ustadz & Tim
+    type: file
+    path: _data/tim.yml
+    fields:
+      - name: ustadz
+        label: Ustadz pembimbing
+        type: object
+        fields:
+          - { name: nama, label: Nama, type: string }
+          - { name: foto, label: Foto, type: image }
+      - name: anggota
+        label: Anggota tim
+        type: object
+        list: true
+        fields:
+          - { name: nama, label: Nama, type: string }
+          - { name: jabatan, label: Jabatan, type: string }
+          - { name: foto, label: Foto, type: image }
+  - name: umum
+    label: Info Umum, Kontak & Foto Utama
+    type: file
+    path: _data/umum.yml
+    fields:
+      - { name: judul_hero, label: Judul besar di atas, type: string }
+      - { name: subjudul_hero, label: Kalimat di bawah judul, type: text }
+      - name: foto_hero
+        label: Foto atas (3 foto, yang ke-2 tampil di HP)
+        type: image
+        list: { min: 1, max: 3 }
+      - { name: jumlah_jamaah, label: Jumlah jamaah (contoh "1000+"), type: string }
+      - { name: lama_tahun, label: Lama berdiri (tahun), type: string }
+      - { name: foto_tentang, label: Foto bagian Tentang Kami, type: image }
+      - { name: foto_daftar, label: Foto bagian Segera Daftar, type: image }
+      - { name: wa_cs, label: "WA Customer Service (format 62..., tanpa + dan spasi)", type: string }
+      - { name: wa_cs_tampil, label: Nomor CS yang ditampilkan, type: string }
+      - { name: wa_konsultan, label: "WA Umroh Consultant (format 62...)", type: string }
+      - { name: wa_konsultan_tampil, label: Nomor konsultan yang ditampilkan, type: string }
+      - { name: email, label: Email, type: string }
+      - { name: jam_kerja, label: Jam kerja, type: string }
+      - { name: jam_libur, label: Keterangan akhir pekan, type: string }
+      - { name: alamat, label: Alamat kantor, type: string }
+      - { name: link_maps, label: Link Google Maps, type: string }
+      - { name: instagram, label: Link Instagram (opsional), type: string }
+      - { name: facebook, label: Link Facebook (opsional), type: string }
+      - { name: tiktok, label: Link TikTok (opsional), type: string }
+      - { name: youtube, label: Link YouTube (opsional), type: string }
