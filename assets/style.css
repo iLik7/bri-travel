@@ -204,11 +204,24 @@ h1, h2, h3 { font-family: var(--serif); line-height: 1.15; margin: 0 0 .5em; }
 .termasuk li::before { content: "✓ "; color: var(--wa); font-weight: 700; }
 .promo-note { text-align: center; color: var(--muted); font-size: .95rem; margin: 10px 0 0; }
 
+/* Keberangkatan terakhir */
+.keberangkatan { background: #fff; }
+.rombongan { margin-top: 36px; }
+.rombongan-head { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px 20px; border-bottom: 1px solid var(--line); padding-bottom: 12px; margin-bottom: 20px; }
+.rombongan-head h3 { font-size: 1.6rem; color: var(--navy); margin: 0; }
+.rombongan-head p { margin: 0; display: flex; gap: 8px; flex-wrap: wrap; }
+.rombongan-head span { background: var(--cream); border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; font-size: .9rem; color: var(--brown); }
+.reel { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.reel-item { margin: 0; }
+.reel-item video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 16px; background: #000; display: block; box-shadow: 0 10px 28px rgba(31,36,55,.15); }
+.reel-item figcaption { font-size: .95rem; color: var(--muted); margin-top: 10px; text-align: center; }
+
 /* Tablet */
 @media (max-width: 960px) {
   .about-grid { grid-template-columns: 1fr; gap: 36px; }
   .team-grid { grid-template-columns: repeat(2, 1fr); }
   .kontak-grid { grid-template-columns: repeat(2, 1fr); }
+  .reel { grid-template-columns: repeat(2, 1fr); }
   .pameran-card { grid-template-columns: 1fr; }
   .promo { grid-template-columns: 1fr; }
   .promo-poster { max-width: 460px; margin: 0 auto; }
@@ -245,6 +258,8 @@ h1, h2, h3 { font-family: var(--serif); line-height: 1.15; margin: 0 0 .5em; }
   .kontak-grid { grid-template-columns: 1fr; gap: 22px; }
   .footer-inner { flex-direction: column; text-align: center; }
   .promo { padding: 16px; gap: 22px; }
+  .reel { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 20px; gap: 14px; margin: 0 -20px; padding: 0 20px 10px; }
+  .reel-item { flex: 0 0 72%; scroll-snap-align: start; }
   .pameran-body { padding: 22px 20px; }
   .promo-strip-inner .btn { width: 100%; }
 }

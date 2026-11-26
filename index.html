@@ -100,6 +100,39 @@ layout: default
   </section>
   {%- endif %}
 
+  {%- assign kb = site.data.keberangkatan %}
+  {%- assign rombongan_tampil = kb.rombongan | where: "tampil", true %}
+  {%- if rombongan_tampil.size > 0 %}
+  <section class="section keberangkatan" id="keberangkatan">
+    <div class="wrap">
+      <h2 class="title">{{ kb.judul }}</h2>
+      <p class="sub">{{ kb.keterangan }}</p>
+      {%- for r in rombongan_tampil %}
+      <div class="rombongan">
+        <div class="rombongan-head">
+          <h3>{{ r.nama }}</h3>
+          <p>
+            {%- if r.tanggal and r.tanggal != '' %}<span>{{ r.tanggal }}</span>{% endif %}
+            {%- if r.paket and r.paket != '' %}<span>{{ r.paket }}</span>{% endif %}
+            {%- if r.jumlah_jamaah and r.jumlah_jamaah != '' %}<span>{{ r.jumlah_jamaah }} jamaah</span>{% endif %}
+          </p>
+        </div>
+        <div class="reel">
+          {%- for v in r.video %}
+          <figure class="reel-item">
+            <video controls playsinline preload="none" poster="{{ v.sampul | relative_url }}" aria-label="{{ v.keterangan | default: r.nama }}">
+              <source src="{{ v.file | relative_url }}" type="video/mp4">
+            </video>
+            {%- if v.keterangan and v.keterangan != '' %}<figcaption>{{ v.keterangan }}</figcaption>{% endif %}
+          </figure>
+          {%- endfor %}
+        </div>
+      </div>
+      {%- endfor %}
+    </div>
+  </section>
+  {%- endif %}
+
   <section class="section testi" id="testimoni">
     <div class="wrap">
       <h2 class="title">Testimoni <b>Jamaah</b></h2>

@@ -33,6 +33,31 @@ content:
               - { name: hotel_madinah, label: Hotel Madinah, type: string }
               - { name: harga, label: Harga (contoh Rp 39 juta), type: string }
               - { name: bonus, label: Bonus (opsional, contoh Free kereta cepat), type: string }
+  - name: keberangkatan
+    label: Keberangkatan Terakhir
+    type: file
+    path: _data/keberangkatan.yml
+    fields:
+      - { name: judul, label: Judul bagian, type: string }
+      - { name: keterangan, label: Kalimat pembuka, type: text }
+      - name: rombongan
+        label: Rombongan (yang paling baru taruh paling atas)
+        type: object
+        list: true
+        fields:
+          - { name: nama, label: Nama rombongan (contoh Rombongan Umroh Januari 2027), type: string, required: true }
+          - { name: tanggal, label: Bulan / tanggal berangkat, type: string }
+          - { name: paket, label: Paket (contoh Paket 12 Hari), type: string }
+          - { name: jumlah_jamaah, label: Jumlah jamaah (opsional), type: string }
+          - { name: tampil, label: Tampilkan di website, type: boolean, default: true }
+          - name: video
+            label: Video (MP4 vertikal, di bawah 10 MB per video)
+            type: object
+            list: true
+            fields:
+              - { name: file, label: File video (MP4), type: file, options: { extensions: [mp4] } }
+              - { name: sampul, label: Gambar sampul, type: image }
+              - { name: keterangan, label: Keterangan singkat, type: string }
   - name: pameran
     label: Upcoming Pameran
     type: file

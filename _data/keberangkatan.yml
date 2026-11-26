@@ -1,0 +1,21 @@
+judul: Keberangkatan Terakhir
+keterangan: Alhamdulillah, rombongan jamaah yang baru saja kami berangkatkan ke Tanah Suci.
+rombongan:
+  - nama: Rombongan Umroh September 2026
+    tanggal: September 2026
+    paket: Paket 19 Hari
+    jumlah_jamaah: ""
+    tampil: true
+    video:
+      - file: /images/video/sep2026-1-ziarah.mp4
+        sampul: /images/sep2026-1-ziarah-poster.jpg
+        keterangan: Ziarah perpisahan kepada Rasulullah ﷺ
+      - file: /images/video/sep2026-2-umroh.mp4
+        sampul: /images/sep2026-2-umroh-poster.jpg
+        keterangan: Melaksanakan Umroh pertama
+      - file: /images/video/sep2026-3-bimbingan.mp4
+        sampul: /images/sep2026-3-bimbingan-poster.jpg
+        keterangan: Bimbingan muthowif selama perjalanan
+      - file: /images/video/sep2026-4-thawaf-wada.mp4
+        sampul: /images/sep2026-4-thawaf-wada-poster.jpg
+        keterangan: Thawaf Wada' sebelum pulang
