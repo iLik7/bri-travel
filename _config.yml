@@ -9,3 +9,6 @@ exclude:
   - .pages.yml
   - Gemfile
   - Gemfile.lock
+
+permalink: /artikel/:title/
+markdown: kramdown

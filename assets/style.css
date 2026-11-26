@@ -357,3 +357,36 @@ h1, h2, h3 { font-family: var(--serif); line-height: 1.15; margin: 0 0 .5em; }
   .peta-actions .btn { flex: 1 1 100%; text-align: center; }
 }
 .kontak .peta-actions .btn-light { color: var(--navy); }
+
+/* Artikel */
+.artikel-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+.artikel-card { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: 20px; overflow: hidden; text-decoration: none; color: var(--ink); transition: transform .2s, box-shadow .2s; }
+.artikel-card:hover { transform: translateY(-3px); box-shadow: 0 14px 36px rgba(31,36,55,.1); }
+.artikel-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; object-position: center 40%; }
+.artikel-card div { padding: 20px 22px 24px; }
+.artikel-card h2 { font-size: 1.3rem; line-height: 1.3; margin: 0 0 8px; }
+.artikel-card p { color: var(--muted); font-size: .98rem; margin: 0 0 12px; }
+.artikel-card span { color: var(--wa); font-weight: 700; font-size: .95rem; }
+.artikel-head { background: radial-gradient(circle at 80% 0%, #34407a 0%, #1f2437 60%); color: #fff; padding: 64px 0 48px; }
+.artikel-head .eyebrow a { color: inherit; }
+.artikel-head h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; margin: 6px 0 14px; }
+.artikel-head .lead { margin: 0; color: #d7dae6; }
+.artikel-wrap { max-width: 780px; }
+.artikel-cover { width: 100%; aspect-ratio: 16/9; object-fit: cover; object-position: center 40%; border-radius: 20px; margin-top: -24px; box-shadow: 0 16px 40px rgba(31,36,55,.15); }
+.artikel-body { padding-top: 36px; padding-bottom: 72px; font-size: 1.08rem; }
+.artikel-body h2 { font-size: 1.7rem; margin: 36px 0 12px; }
+.artikel-body ul, .artikel-body ol { padding-left: 1.3em; }
+.artikel-body li { margin-bottom: 8px; }
+.artikel-body a { color: var(--wa); font-weight: 700; }
+.artikel-cta { margin-top: 48px; background: var(--navy); color: #e8eaf2; border-radius: 20px; padding: 30px 32px; }
+.artikel-cta h2 { color: #fff; margin-top: 0; }
+.artikel-cta .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.artikel-cta .btn-outline { color: #fff; border-color: rgba(255,255,255,.6); }
+.artikel-cta a.btn { font-weight: 700; }
+@media (max-width: 760px) {
+  .artikel-list { grid-template-columns: 1fr; }
+  .artikel-cover { margin-top: 0; border-radius: 0 0 16px 16px; }
+  .artikel-cta { padding: 24px 20px; }
+  .artikel-cta .btn { flex: 1 1 100%; text-align: center; }
+}
+.artikel-body a.btn { color: #fff; }

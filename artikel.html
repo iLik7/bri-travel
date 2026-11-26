@@ -1,0 +1,27 @@
+---
+layout: default
+permalink: /artikel/
+judul: "Artikel & Panduan Umroh | Barokah Ridho Ilahi Surabaya"
+deskripsi: "Panduan Umroh dari Barokah Ridho Ilahi Surabaya: cara cek travel resmi, rincian biaya Umroh dari Surabaya, tips Umroh untuk lansia, dan lainnya."
+---
+  <section class="promo-hero">
+    <div class="wrap">
+      <p class="eyebrow">Barokah Ridho Ilahi</p>
+      <h1>Artikel &amp; Panduan Umroh</h1>
+      <p class="lead">Bekal ilmu dan tips praktis sebelum berangkat ke Tanah Suci.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap artikel-list">
+      {%- for p in site.posts %}
+      <a class="artikel-card" href="{{ p.url | relative_url }}">
+        <img src="{{ p.gambar | default: '/images/daftar.jpg' | relative_url }}" alt="" loading="lazy">
+        <div>
+          <h2>{{ p.judul_artikel | default: p.title }}</h2>
+          <p>{{ p.ringkasan }}</p>
+          <span>Baca selengkapnya →</span>
+        </div>
+      </a>
+      {%- endfor %}
+    </div>
+  </section>

@@ -63,6 +63,7 @@
       <a href="{{ beranda }}#keberangkatan">Keberangkatan</a>
       <a href="{{ beranda }}#testimoni">Testimoni</a>
       <a href="{{ beranda }}#faq">FAQ</a>
+      <a href="{{ '/artikel/' | relative_url }}">Artikel</a>
       <a href="{{ beranda }}#kontak">Kontak</a>
       <a class="btn btn-wa btn-sm" href="https://wa.me/{{ u.wa_cs }}?text={{ wa_pesan }}" target="_blank" rel="noopener">Chat WhatsApp</a>
     </nav>
@@ -120,7 +121,7 @@
 <footer class="footer">
   <div class="wrap footer-inner">
     <img src="{{ '/images/logo.png' | relative_url }}" alt="Barokah Ridho Ilahi" width="150" height="57" loading="lazy">
-    <p>© {{ site.time | date: "%Y" }} PT. Barokah Ridho Ilahi. Travel Umroh &amp; Haji, Surabaya. · <a href="{{ '/legalitas/' | relative_url }}">Legalitas</a></p>
+    <p>© {{ site.time | date: "%Y" }} PT. Barokah Ridho Ilahi. Travel Umroh &amp; Haji, Surabaya. · <a href="{{ '/legalitas/' | relative_url }}">Legalitas</a> · <a href="{{ '/artikel/' | relative_url }}">Artikel</a></p>
   </div>
 </footer>
 

@@ -1,0 +1,31 @@
+---
+layout: default
+---
+{%- assign u = site.data.umum -%}
+{%- capture pesan_a %}Assalamualaikum, saya habis baca artikel "{{ page.judul_artikel | default: page.title }}" dan ingin konsultasi Umroh.{% endcapture %}
+  <article class="artikel">
+    <header class="artikel-head">
+      <div class="wrap artikel-wrap">
+        <p class="eyebrow"><a href="{{ '/artikel/' | relative_url }}">Artikel</a> · {{ page.date | date: "%-d %B %Y" | replace: "January","Januari" | replace: "February","Februari" | replace: "March","Maret" | replace: "May","Mei" | replace: "June","Juni" | replace: "July","Juli" | replace: "August","Agustus" | replace: "October","Oktober" | replace: "December","Desember" }}</p>
+        <h1>{{ page.judul_artikel | default: page.title }}</h1>
+        {%- if page.ringkasan %}<p class="lead">{{ page.ringkasan }}</p>{% endif %}
+      </div>
+    </header>
+    {%- if page.gambar and page.gambar != '' %}
+    <div class="wrap artikel-wrap"><img class="artikel-cover" src="{{ page.gambar | relative_url }}" alt="{{ page.judul_artikel | default: page.title }}"></div>
+    {%- endif %}
+    <div class="wrap artikel-wrap artikel-body">
+      {{ content }}
+      <aside class="artikel-cta">
+        <h2>Mau konsultasi dulu?</h2>
+        <p>Tanya jadwal, paket, atau syarat dokumen. Gratis, tanpa kewajiban daftar.</p>
+        <div class="actions">
+          <a class="btn btn-wa" href="https://wa.me/{{ u.wa_cs }}?text={{ pesan_a | url_encode | replace: "+", "%20" }}" target="_blank" rel="noopener">Chat WhatsApp</a>
+          <a class="btn btn-outline" href="{{ '/promo/' | relative_url }}">Lihat Promo Bulan Ini</a>
+        </div>
+      </aside>
+    </div>
+  </article>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":{{ page.judul_artikel | default: page.title | jsonify }},"description":{{ page.ringkasan | default: page.deskripsi | jsonify }},"datePublished":"{{ page.date | date_to_xmlschema }}","author":{"@type":"Organization","name":"PT. Barokah Ridho Ilahi"},"publisher":{"@type":"Organization","name":"PT. Barokah Ridho Ilahi","logo":{"@type":"ImageObject","url":"{{ '/images/logo.png' | absolute_url }}"}},"image":"{{ page.gambar | default: '/images/daftar.jpg' | absolute_url }}","mainEntityOfPage":"{{ page.url | absolute_url }}"}
+  </script>
